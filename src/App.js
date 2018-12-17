@@ -1,26 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import prop from 'lodash/fp/prop';
+import Catalog from './components/Catalog/Catalog.component';
+import productsList from './productsList';
+
+const CatalogWrapper = styled.div`
+  min-height: 100vh;
+  color: ${prop('theme.palette.primary')};
+`;
+
+const Header = styled.header`
+  padding: 20px;
+  font-size: ${prop('theme.fontSizes.medium')};
+  text-align: center;
+  color: ${prop('theme.palette.default')};
+  background-color: ${prop('theme.palette.tertiary')};
+`;
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <CatalogWrapper>
+        <Header>
+          <h1>Catalog Products</h1>
+        </Header>
+        <Catalog productsList={productsList}/>
+      </CatalogWrapper>
     );
   }
 }
