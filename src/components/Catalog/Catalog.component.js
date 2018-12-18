@@ -7,23 +7,19 @@ import {TABLET, DESKTOP} from '../../theme/layout';
 const ListWrapper = styled.div`
   /* Start fallback for non-supporting-grid browsers */
   display: flex;
-  flex-flow: wrap;
+  flex-wrap: wrap;
   justify-content: stretch;
-  align-items: center;
-  margin: auto;
+  align-items: stretch;
+  margin: 30px auto;
   padding-top: 30px;
   width: 90%;
   /* End fallback */
   
   @supports (display: grid) {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
-    justify-self: stretch;
     justify-items: stretch;
-    justify-content: center;
-    align-content: stretch;
-    grid-auto-flow: row dense;
     
     @media ${TABLET} {
       grid-template-columns: repeat(3, 1fr);

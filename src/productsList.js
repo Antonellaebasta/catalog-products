@@ -329,17 +329,6 @@ const productsList = [
     "size": "30ML",
     "rating": 99
   },
-  {
-    "id": "30103150",
-    "name": "Copy Emporio Armani Emporio",
-    "slug": "parfum/emporio-armani/emporio-she/emporio-armani-emporio-she-eau-de-parfum.html",
-    "brand": "Emporio Armani",
-    "type": "Eau de Parfum",
-    "image": "https://cdn.flaconi.de/media/catalog/215x/e/m/emporio-armani-emporio-she-eau-de-parfum-50ml_7.jpg",
-    "price": 279,
-    "size": "30ML",
-    "rating": 54
-  }
 ];
 
 export default productsList;
