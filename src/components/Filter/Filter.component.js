@@ -57,7 +57,7 @@ class FilterByBrand extends React.Component {
         <Select onChange={this.onSelectChange}>
           <option value="">All</option>
           {this.getBrands(products).map(brand => (
-            <option key={kebabCase(brand)} value={kebabCase(brand)}>
+            <option key={kebabCase(brand)} value={kebabCase(brand)} data-brand={kebabCase(brand)}>
               {brand}
             </option>
           ))}

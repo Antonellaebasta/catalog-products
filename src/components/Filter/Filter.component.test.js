@@ -32,6 +32,12 @@ describe('<FilterByBrand/> shallow rendering', () => {
     expect(defaultOptionSelected.text()).toBe('All');
     expect(defaultOptionSelected.props().value).toEqual("");
   });
+  it('should have a unique list of brand options', () => {
+    const wrapper = setup();
+
+    expect(wrapper.find(Select)).toBeDefined();
+    expect(wrapper.find('option[data-brand]').length).toBe(15);
+  });
   it('should update the brand selected onChange', () => {
     const handleSelectChange = jest.fn();
     const value = 'emporio-armani';

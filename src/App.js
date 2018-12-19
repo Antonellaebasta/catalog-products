@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import prop from 'lodash/fp/prop';
 import Catalog from './components/Catalog/Catalog.component';
 import productsList from './productsList';
+import {TABLET} from './theme/layout';
 
 const CatalogWrapper = styled.div`
   min-height: 100vh;
@@ -11,10 +12,14 @@ const CatalogWrapper = styled.div`
 
 export const Header = styled.header`
   padding: 20px;
-  font-size: ${prop('theme.fontSizes.medium')};
+  font-size: ${prop('theme.fontSizes.small')};
   text-align: center;
   color: ${prop('theme.palette.default')};
   background-color: ${prop('theme.palette.tertiary')};
+  
+  @media ${TABLET} {
+    font-size: ${prop('theme.fontSizes.medium')};
+  }
 `;
 
 class App extends Component {
