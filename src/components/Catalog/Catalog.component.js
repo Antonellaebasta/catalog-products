@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import T from 'prop-types';
 import ProductItem from '../Product/Product.component';
+import FilterByBrand from '../Filter/Filter.component';
 import {TABLET, DESKTOP} from '../../theme/layout';
+import kebabCase from 'lodash/kebabCase';
 
 const ListWrapper = styled.div`
   /* Start fallback for non-supporting-grid browsers */
@@ -32,14 +34,35 @@ const ListWrapper = styled.div`
 `;
 
 class Catalog extends Component {
+  state = {
+    brandSelected: ""
+  };
+
+  handleSelectChange = brandSelected => {
+    this.setState({ brandSelected });
+  };
+
+  /**
+   * To filter the list of products, onChange the brand selected
+   * @returns {Array}
+   */
+  filteredProducts = () => {
+    const { brandSelected } = this.state;
+    const { productsList } = this.props;
+
+    if (!brandSelected.length) return productsList;
+
+    return productsList.filter(p => kebabCase(p.brand) === brandSelected);
+  };
 
   render() {
     const { productsList } = this.props;
 
     return (
       <React.Fragment>
+        <FilterByBrand products={productsList} handleSelectBrand={this.handleSelectChange}/>
         <ListWrapper>
-          {productsList.map(p => (
+          {this.filteredProducts().map(p => (
             <ProductItem key={p.id} product={p}/>
           ))}
         </ListWrapper>

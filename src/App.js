@@ -9,7 +9,7 @@ const CatalogWrapper = styled.div`
   color: ${prop('theme.palette.primary')};
 `;
 
-const Header = styled.header`
+export const Header = styled.header`
   padding: 20px;
   font-size: ${prop('theme.fontSizes.medium')};
   text-align: center;

@@ -1,9 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import Catalog from './components/Catalog/Catalog.component';
+import App, {Header} from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+configure({ adapter: new Adapter() });
+
+describe('<App/> shallow rendering', () => {
+  it('should render correctly', () => {
+    const wrapper = shallow(<App/>);
+
+    expect(wrapper.find(Header).children().text()).toBe('Catalog Products');
+    expect(wrapper.find(Catalog).length).toBe(1);
+  });
 });
